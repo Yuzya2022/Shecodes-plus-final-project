@@ -47,10 +47,20 @@ iconElement.setAttribute(
 response.data.weather[0].description
 );
 }
+function search(city){
+    let apiKey ="ae90fe1370b958ce3e09241e935b028f";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayTemperature);
+}
 
-let apiKey ="ae90fe1370b958ce3e09241e935b028f";
-let city = "Kyiv";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-console.log(apiUrl);
-axios.get(apiUrl).then(displayTemperature);
+function handleSubmit(event){
+    event.preventDefault();
+    let cityInputElement =document.querySelector("#city-input");
+   search(cityInputElement.value);
+}
+
+search("Kyiv");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);

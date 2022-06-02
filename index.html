@@ -14,10 +14,15 @@
     <div class="container">
         <div class="weather-app-wrapper">
         <div class="weather-app">     
-     <form>
+     <form id="search-form">
     <div class="row">
         <div class="col-9">
-            <input type="search" placeholder="Enter a city.." class="form-control search-input">
+            <input 
+            type="search" 
+            placeholder="Enter a city.." 
+            class="form-control search-input"
+            id="city-input"
+            >
         </div>
     <div class="col-3 p-0">
     <input type="submit" class="btn btn-primary w-100" value="Search">
@@ -30,8 +35,8 @@
 <ul>
     <li id="date">Tuesday 05:00</li>
     <li id="description">clear sky</li>
-    <li>Humidity: <span id="humidity"></span> %</li>
-    <li>Wind: <span id="wind"></span> km/h</li>
+    <li>Humidity: <span id="humidity"></span>%</li>
+    <li>Wind: <span id="wind"></span>km/h</li>
 </ul>
 </div>
    <div class="col-6">
