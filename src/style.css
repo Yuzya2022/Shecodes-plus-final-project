@@ -41,19 +41,6 @@ li:first-letter{
     
 }
 
-.units{
-    text-decoration: none;
-    font-size: 23px;
-    position: relative;
-    bottom: 15px;
-    color:blue;
-}
-.units:hover{
-    color: blue;
-}
-.active{
-    color: #272142;
-}
 .weather-forecast{
     margin-top: 20px;
     text-align: center;

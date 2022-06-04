@@ -68,34 +68,6 @@ function handleSubmit(event){
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-function showFahrenheitTemp(event){
-    event.preventDefault();
-    let fahrenheitTemp =(celciusTemp*9)/5+32;
-    let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.innerHTML = Math.round(fahrenheitTemp);
-
-    fahrenheit.classList.remove("active");
-    celcius.classList.add("active");
-}
-
-function showCelciusTemp(event){
-    event.preventDefault();
-    let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.innerHTML = Math.round(celciusTemp);
-
-    fahrenheit.classList.add("active");
-    celcius.classList.remove("active");
-
-}
-
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", showFahrenheitTemp);
-
-let celcius = document.querySelector("#celcius");
-celcius.addEventListener("click", showCelciusTemp);
-
-let celciusTemp = null;
-
 search("Kyiv");
 
 function getForecast(coordinates){
