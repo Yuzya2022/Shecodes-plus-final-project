@@ -22,6 +22,7 @@ function formatDate(timestamp){
     return `Last update: ${day} ${hours}:${minutes}`;
 }
 
+
 function displayTemperature(response){
 
 let temperatureElement = document.querySelector("#temperature");
@@ -46,8 +47,10 @@ iconElement.setAttribute(
 );
 iconElement.setAttribute(
     "alt",
-response.data.weather[0].description
-);
+response.data.weather[0].description);
+
+getForecast(response.data.coord);
+
 }
 function search(city){
     let apiKey ="ae90fe1370b958ce3e09241e935b028f";
@@ -95,7 +98,14 @@ let celciusTemp = null;
 
 search("Kyiv");
 
-function displayForecast() {
+function getForecast(coordinates){
+    let apiKey ="ae90fe1370b958ce3e09241e935b028f";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+    console.log(response.data.daily);
     let forecastElement = document.querySelector("#forecast");
   
     let days = ["Thu", "Fri", "Sat", "Sun", "Mon","Tue"];
@@ -105,10 +115,10 @@ function displayForecast() {
       forecastHTML =
         forecastHTML +
         `
-        <div class="col-2">
+        <div class="col-2 one-day">
           <div class="weather-forecast-date">${day}</div>
           <img
-            src="http://openweathermap.org/img/wn/50d@2x.png"
+            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
             alt=""
             width="42"
           />
@@ -122,7 +132,5 @@ function displayForecast() {
   
     forecastHTML = forecastHTML + `</div>`;
     forecastElement.innerHTML = forecastHTML;
-    console.log(forecastHTML);
   }
 
-displayForecast();

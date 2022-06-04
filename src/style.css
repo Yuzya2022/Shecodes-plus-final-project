@@ -67,3 +67,7 @@ font-size: 16px;
 .weather-forecast-temperature-min{
     opacity: 0.6;
 }
+.one-day{
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
